@@ -1,5 +1,4 @@
 package application;
-
 import java.util.Date;
 
 import model.dao.DaoFactory;
@@ -11,13 +10,10 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		Department obj = new Department(1, "Books");
-		Seller seller = new Seller(21, "Bob", "bob@gmail.com", new Date(), 3000.0, obj);
-		
 		SellerDao sellerDao = DaoFactory.createSellerDao(); // assim, o seu programa não conhece a implementação, conhece somente a interface. É também uma forma de fazer injeção de dependências sem explicitar a implementação.  
+		Seller seller = sellerDao.findById(3);
 		
 		System.out.println(seller);
-		
 	}
-
+	
 }
